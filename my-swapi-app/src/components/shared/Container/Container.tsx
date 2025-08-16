@@ -16,8 +16,18 @@ const ContainerFlexItem: React.FC<{
 export const Container: React.FC<ContainerProps> & {
   Item: typeof ContainerItem;
   FlexItem: typeof ContainerFlexItem;
-} = ({ children, ...props }) => (
-  <StyledContainer {...props}>{children}</StyledContainer>
+} = ({ children, direction, gap, justify, align, wrap, padding, ...rest }) => (
+  <StyledContainer 
+    direction={direction}
+    gap={gap}
+    justify={justify}
+    align={align}
+    wrap={wrap}
+    padding={padding}
+    {...rest}
+  >
+    {children}
+  </StyledContainer>
 );
 
 Container.Item = ContainerItem;

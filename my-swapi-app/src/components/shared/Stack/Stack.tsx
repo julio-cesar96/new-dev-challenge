@@ -21,8 +21,17 @@ export const Stack: React.FC<StackProps> & {
   Divider: typeof StackDivider;
   Spacer: typeof StackSpacer;
   Item: typeof StackItem;
-} = ({ children, ...props }) => (
-  <StyledStack {...props}>{children}</StyledStack>
+} = ({ children, direction, gap, wrap, align, justify, ...rest }) => (
+  <StyledStack 
+    direction={direction}
+    gap={gap}
+    wrap={wrap}
+    align={align}
+    justify={justify}
+    {...rest} // Passa style, className, etc.
+  >
+    {children}
+  </StyledStack>
 );
 
 Stack.Divider = StackDivider;

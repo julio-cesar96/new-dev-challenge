@@ -18,8 +18,20 @@ export const Button: React.FC<ButtonProps> & {
   LeftIcon: typeof LeftIcon;
   RightIcon: typeof RightIcon;
   Text: typeof Text;
-} = ({ children, ...props }) => {
-  return <StyledButton {...props}>{children}</StyledButton>;
+} = ({ children, variant, size, width, height, fullWidth, customColor, ...rest }) => {
+  return (
+    <StyledButton 
+      variant={variant}
+      size={size}
+      width={width}
+      height={height}
+      fullWidth={fullWidth}
+      customColor={customColor}
+      {...rest}
+    >
+      {children}
+    </StyledButton>
+  );
 };
 
 Button.LeftIcon = LeftIcon;

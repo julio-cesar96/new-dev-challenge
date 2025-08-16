@@ -1,4 +1,5 @@
-export interface ContainerProps {
+import { HTMLAttributes } from 'react';
+export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   direction?: "row" | "column";
   gap?: string;
   justify?: string;

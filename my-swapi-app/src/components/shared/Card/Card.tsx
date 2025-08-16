@@ -18,8 +18,15 @@ export const Card: React.FC<CardProps> & {
   Header: typeof CardHeader;
   Body: typeof CardBody;
   Footer: typeof CardFooter;
-} = ({ children, ...props }) => (
-  <StyledCard {...props}>{children}</StyledCard>
+} = ({ children, elevation, padding, backgroundColor, ...rest }) => (
+  <StyledCard 
+    elevation={elevation}
+    padding={padding}
+    backgroundColor={backgroundColor}
+    {...rest}
+  >
+    {children}
+  </StyledCard>
 );
 
 Card.Header = CardHeader;

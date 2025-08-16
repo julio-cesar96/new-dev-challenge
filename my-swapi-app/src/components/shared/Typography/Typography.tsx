@@ -22,19 +22,32 @@ const Caption: React.FC<Omit<TypographyProps, 'variant'>> = ({ children, ...prop
   <StyledTypography as="span" variant="caption" {...props}>{children}</StyledTypography>
 );
 
-export const Typography: React.FC<TypographyProps> & {
+type TypographyComponent = React.FC<TypographyProps> & {
   H1: typeof H1;
   H2: typeof H2;
   H3: typeof H3;
   Body: typeof Body;
   Caption: typeof Caption;
-} = ({ variant = "body", color, align = "left", children }) => {
+};
+
+export const Typography: TypographyComponent = (({ 
+  variant = "body", 
+  color, 
+  align = "left", 
+  children, 
+  ...rest 
+}) => {
   return (
-    <StyledTypography variant={variant} color={color} align={align}>
+    <StyledTypography 
+      variant={variant} 
+      color={color} 
+      align={align} 
+      {...rest}
+    >
       {children}
     </StyledTypography>
   );
-};
+}) as TypographyComponent;
 
 Typography.H1 = H1;
 Typography.H2 = H2;

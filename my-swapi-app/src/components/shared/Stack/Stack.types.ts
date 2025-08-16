@@ -1,4 +1,6 @@
-export interface StackProps {
+import { HTMLAttributes } from 'react';
+
+export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   direction?: "row" | "column";
   gap?: string;
   wrap?: boolean;
