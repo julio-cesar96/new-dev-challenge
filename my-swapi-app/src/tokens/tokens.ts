@@ -1,4 +1,3 @@
-// src/styles/tokens.ts
 export const colors = {
   primary: "#6666ff",
   secondary: "#ff66ff",
@@ -19,3 +18,19 @@ export const colors = {
     900: "#212529",
   },
 };
+
+export const breakpoints = {
+  sm: "480px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+};
+
+export const fontSizes = {
+  h1: "2.5rem",
+  h2: "2rem",
+  h3: "1.5rem",
+  body: "1rem",
+  caption: "0.875rem",
+};
+
