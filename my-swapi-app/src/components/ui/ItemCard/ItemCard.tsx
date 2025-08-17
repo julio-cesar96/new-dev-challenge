@@ -202,11 +202,11 @@ export const ItemCard: React.FC<ItemCardProps> = ({ item, category }) => {
   return (
     <Card elevation={3} padding="32px">
       <ItemTitle>{getItemName(item)}</ItemTitle>
-      {category === 'films' && (
+      {category === 'films' ? (
         <Typography.Body color="#666" style={{ marginBottom: '16px', fontStyle: 'italic' }}>
           {(item as Film).opening_crawl.slice(0, 200)}...
         </Typography.Body>
-      )}
+      ) : null}
       {renderAttributes()}
     </Card>
   );
