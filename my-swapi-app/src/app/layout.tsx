@@ -16,7 +16,7 @@ const rubik = Rubik({
   weight: ["300","400","500","600","700","800","900"],
 });
 
-// Global styles usando fonts carregadas
+
 const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
@@ -39,11 +39,10 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  // Configuração do QueryClient com as mesmas opções do exemplo
   const [queryClient] = useState(() => new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 5 * 60 * 1000, // 5 minutos
+        staleTime: 5 * 60 * 1000,
         retry: 3,
       },
     },

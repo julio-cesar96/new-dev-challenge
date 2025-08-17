@@ -16,7 +16,7 @@ export function CategoryPage({ category }: CategoryPageProps) {
   const router = useRouter();
   const categoryInfo = CATEGORIES.find(cat => cat.id === category);
 
-  // Inferindo tipo pelo category
+
   type ItemType = typeof categoryTypeMap[typeof category];
 
   const { data: item, isLoading, error, refetch } = useRandomItem<ItemType>(category);
@@ -44,7 +44,6 @@ export function CategoryPage({ category }: CategoryPageProps) {
   return (
     <Container direction="column" padding="40px 20px">
       <Stack direction="column" gap="32px">
-        {/* Header */}
         <Stack direction="row" justify="space-between" align="center">
           <Stack direction="column" gap="8px">
             <Typography.H1>{categoryInfo.icon} {categoryInfo.name}</Typography.H1>
@@ -53,7 +52,6 @@ export function CategoryPage({ category }: CategoryPageProps) {
           <Button variant="secondary" onClick={handleBackToHome}>← Voltar para Home</Button>
         </Stack>
 
-        {/* Action Button */}
         <Container justify="center">
           <Button variant="primary" size="large" onClick={handleNewItem} disabled={isLoading}>
             {isLoading ? (
@@ -67,7 +65,6 @@ export function CategoryPage({ category }: CategoryPageProps) {
           </Button>
         </Container>
 
-        {/* Content */}
         <Container justify="center">
           <div style={{ maxWidth: '800px', width: '100%' }}>
             {isLoading && !item ? (

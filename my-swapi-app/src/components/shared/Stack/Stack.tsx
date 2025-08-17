@@ -28,7 +28,7 @@ export const Stack: React.FC<StackProps> & {
     wrap={wrap}
     align={align}
     justify={justify}
-    {...rest} // Passa style, className, etc.
+    {...rest}
   >
     {children}
   </StyledStack>

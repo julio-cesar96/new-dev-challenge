@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 import React from 'react';
 
-// Função simples para lidar com clicks
+
 const handleClick = () => {
   console.log('Button clicked!');
 };
@@ -32,7 +32,7 @@ O componente Button implementa o **Composition Pattern**, permitindo composiçã
 - **Button.Text**: Wrapper para texto
         `,
       },
-      source: { type: 'auto' }, // força sempre gerar pelos args
+      source: { type: 'auto' },
     },
   },
   argTypes: {
@@ -79,7 +79,7 @@ O componente Button implementa o **Composition Pattern**, permitindo composiçã
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-// Story básica com texto simples
+
 export const Primary: Story = {
   args: {
     variant: 'primary',
@@ -115,7 +115,7 @@ export const Warning: Story = {
   },
 };
 
-// Exemplos de tamanhos
+
 export const Large: Story = {
   args: {
     size: 'large',
@@ -137,7 +137,7 @@ export const Small: Story = {
   },
 };
 
-// Exemplos com Composition Pattern
+
 export const WithLeftIcon: Story = {
   args: {
     variant: 'primary',
@@ -175,7 +175,7 @@ export const WithBothIcons: Story = {
   },
 };
 
-// Exemplos de customização
+
 export const CustomColor: Story = {
   args: {
     customColor: '#9c27b0',

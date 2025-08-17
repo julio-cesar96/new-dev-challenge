@@ -20,7 +20,7 @@ const meta: Meta<typeof ItemCard> = {
 export default meta;
 type Story = StoryObj<typeof ItemCard>;
 
-// --- Mock Data (sem alterações) ---
+
 const mockPerson: Person = {
   name: 'Luke Skywalker',
   birth_year: '19BBY',
@@ -74,10 +74,9 @@ const mockPlanet: Planet = {
     edited: '',
 }
 
-// --- Stories (CORREÇÃO AQUI) ---
-// Renomeando as constantes para evitar conflito de nome
+
 export const PersonStory: Story = {
-  name: 'Person', // O 'name' controla como a story aparece na UI do Storybook
+  name: 'Person', 
   args: {
     item: mockPerson,
     category: 'people',
