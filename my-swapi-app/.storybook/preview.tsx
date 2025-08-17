@@ -1,5 +1,4 @@
 import type { Preview, Decorator } from "@storybook/react";
-import React from 'react';
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { colors, breakpoints, fontSizes } from "../src/tokens/tokens";
 

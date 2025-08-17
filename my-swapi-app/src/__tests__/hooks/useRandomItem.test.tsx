@@ -1,9 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, waitFor } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider, UseQueryResult } from '@tanstack/react-query';
 import { useRandomItem } from '@/hooks/useRandomItem';
 import * as swapiService from '@/services/swapi';
 import React from 'react';
+
+type MockFilm = { title: string };
 
 describe('useRandomItem', () => {
   const queryClient = new QueryClient();
@@ -20,15 +22,15 @@ describe('useRandomItem', () => {
   });
 
   it('deve retornar um item aleatório da categoria', async () => {
-    const mockItems = [{ title: 'A New Hope' }, { title: 'The Empire Strikes Back' }];
-    
+    const mockItems: MockFilm[] = [{ title: 'A New Hope' }, { title: 'The Empire Strikes Back' }];
+
 
     vi.spyOn(swapiService, 'getCategoryItems').mockResolvedValue(mockItems);
 
  
-    let result: any;
+    let result = {} as UseQueryResult<MockFilm, Error>;
     const TestComponent = () => {
-      result = useRandomItem(mockCategory);
+      result = useRandomItem<MockFilm>(mockCategory);
       return null;
     };
 
@@ -45,9 +47,9 @@ describe('useRandomItem', () => {
   it('deve lidar com erro na fetch', async () => {
     vi.spyOn(swapiService, 'getCategoryItems').mockRejectedValue(new Error('API Error'));
 
-    let result: any;
+    let result = {} as UseQueryResult<MockFilm, Error>;
     const TestComponent = () => {
-      result = useRandomItem(mockCategory);
+      result = useRandomItem<MockFilm>(mockCategory);
       return null;
     };
 

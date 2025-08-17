@@ -1,6 +1,5 @@
 
-import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { ItemCard } from './ItemCard';
 import type { Person, Film, Planet } from '@/types/swapi';
 
