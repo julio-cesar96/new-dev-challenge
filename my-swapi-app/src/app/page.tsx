@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Container, Typography, Stack } from '@/components/shared';
 import { CategoryCard } from '@/components/ui';
@@ -8,6 +8,10 @@ import { CATEGORIES, Category } from '@/constants/categories';
 
 export default function HomePage() {
   const router = useRouter();
+
+  useEffect(() => {
+    document.title = 'SWU - Home';
+  }, []);
 
   const handleCategoryClick = (category: Category) => {
     router.push(category.path);

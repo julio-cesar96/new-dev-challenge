@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Container, Typography, Stack, Button, Loader } from '@/components/shared';
 import { useRandomItem } from '@/hooks/useRandomItem';
@@ -20,6 +20,14 @@ export function CategoryPage({ category }: CategoryPageProps) {
   type ItemType = typeof categoryTypeMap[typeof category];
 
   const { data: item, isLoading, error, refetch } = useRandomItem<ItemType>(category);
+
+   useEffect(() => {
+    if (categoryInfo) {
+      document.title = `SWU - ${categoryInfo.name}`;
+    } else {
+      document.title = 'SWU - Categoria não encontrada';
+    }
+  }, [categoryInfo]);
 
   const handleNewItem = () => refetch();
   const handleBackToHome = () => router.push('/');
