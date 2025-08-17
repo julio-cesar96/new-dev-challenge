@@ -62,25 +62,25 @@ export function CategoryPage({ category }: CategoryPageProps) {
         {/* Content */}
         <Container justify="center">
           <div style={{ maxWidth: '800px', width: '100%' }}>
-            {isLoading && !item && (
+            {isLoading && !item ? (
               <Container justify="center" padding="80px 0">
                 <Loader>
                   <Loader.Spinner size={48} />
                   <Loader.Text>Buscando informações...</Loader.Text>
                 </Loader>
               </Container>
-            )}
+            ): null}
 
-            {error && (
+            {error ? (
               <Container justify="center" padding="40px">
                 <Stack direction="column" align="center" gap="16px">
                   <Typography.Body color="red">Erro ao carregar: {error.message}</Typography.Body>
                   <Button onClick={handleNewItem}>Tentar novamente</Button>
                 </Stack>
               </Container>
-            )}
+            ): null}
 
-            {item && !isLoading && <ItemCard item={item} category={category} />}
+            {item && !isLoading ? <ItemCard item={item} category={category} /> : null}
           </div>
         </Container>
       </Stack>
