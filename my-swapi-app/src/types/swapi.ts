@@ -111,5 +111,5 @@ export interface Planet {
 }
 
 export interface ApiResponse<T> {
-  results: T[];
+  [key: string]: any;
 }
